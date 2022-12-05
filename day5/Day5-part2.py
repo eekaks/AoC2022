@@ -23,10 +23,18 @@ for line in lines:
         fromStack = int(line[3])
         toStack = int(line[5])
         modifier = 4
-        for i in range(howMany):
-            crateToMove = craneStacks[(fromStack*modifier)-3].pop()
-            craneStacks[(toStack*modifier)-3].append(crateToMove)
-
+        if howMany == 1:
+            for i in range(howMany):
+                crateToMove = craneStacks[(fromStack*modifier)-3].pop()
+                craneStacks[(toStack*modifier)-3].append(crateToMove)
+        else:
+            temporaryQueue = deque()
+            for i in range(howMany):
+                crateToMove = craneStacks[(fromStack*modifier)-3].pop()
+                temporaryQueue.append(crateToMove)
+            for i in range(howMany):
+                crateToMove = temporaryQueue.pop()
+                craneStacks[(toStack*modifier)-3].append(crateToMove)
 print(craneStacks)
 
 answer = ""
