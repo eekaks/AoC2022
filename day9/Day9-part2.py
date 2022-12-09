@@ -3,7 +3,7 @@ knots = [(0,0) for i in range(10)]
 xDirection = 1
 yDirection = 1
 
-f = open("Day9-input-example.txt", "r")
+f = open("Day9-input.txt", "r")
 for line in f:
     line = line.strip()
     if line[0] == "R":
@@ -71,4 +71,4 @@ for line in f:
             knots[j] = knot
             knots[j+1] = nextKnot
 
-print(len(tailVisited))
+print(len(tailVisited) + 1)
