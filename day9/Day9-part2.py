@@ -20,10 +20,6 @@ for line in f:
         yDirection = -1
 
     for i in range(int(line[2:])):
-        if knots[9] in tailVisited:
-            tailVisited[knots[9]] += 1
-        else:
-            tailVisited[knots[9]] = 1
         for j in range(9):
             knot = knots[j]
             nextKnot = knots[j+1]
@@ -70,5 +66,9 @@ for line in f:
                         nextKnot = (nextKnot[0] - 1, nextKnot[1] - 1)
             knots[j] = knot
             knots[j+1] = nextKnot
+        if knots[9] in tailVisited:
+            tailVisited[knots[9]] += 1
+        else:
+            tailVisited[knots[9]] = 1
 
-print(len(tailVisited) + 1)
+print(len(tailVisited))
