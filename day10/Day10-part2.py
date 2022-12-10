@@ -15,5 +15,4 @@ for line in open("Day10-input.txt", "r"):
     
 for i in range(len(image)):
     print(image[i], end='')
-    if i in cycleThresholds:
-        print()
+    if i in cycleThresholds: print()
